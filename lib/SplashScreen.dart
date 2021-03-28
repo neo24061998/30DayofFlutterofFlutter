@@ -1,5 +1,7 @@
 import 'dart:async';
+import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 import 'afterSplash.dart';
 
@@ -24,7 +26,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   _loadWidget() async {
-    var _duration = Duration(seconds: 5 /*splashDelay*/);
+    var _duration = Duration(seconds: 10 /*splashDelay*/);
     return Timer(_duration, navigationPage);
   }
 
@@ -36,52 +38,28 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: InkWell(
-        child: Stack(
-          fit: StackFit.expand,
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment(
+                0.8, 0.0), // 10% of the width, so there are ten blinds.
+            colors: <Color>[Colors.green, Colors.blue],
+          ),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                Expanded(
-                  flex: 7,
-                  child: Container(
-                      child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Image.asset(
-                        'assets/images/version20.png',
-                        height: 300,
-                        width: 300,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 10.0),
-                      ),
-                    ],
-                  )),
-                ),
-                Expanded(
-                  child: Column(
-                    children: <Widget>[
-                      CircularProgressIndicator(),
-                      Container(
-                        height: 10,
-                      ),
-                      Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: <Widget>[
-                            Spacer(),
-                            Text(_versionName),
-                            Spacer(
-                              flex: 4,
-                            ),
-                            Text('androing'),
-                            Spacer(),
-                          ])
-                    ],
-                  ),
-                ),
-              ],
+            SizedBox(
+              height: 300,
+              width: 300,
+              child: Lottie.asset("assets/images/coding1.json"),
+            ),
+            SizedBox(
+              height: 300,
+              width: 300,
+              child: Image.asset("assets/images/version20.png"),
             ),
           ],
         ),

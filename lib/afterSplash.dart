@@ -5,7 +5,15 @@ class AfterSplash extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("data"),
+        title: Center(
+          child: Text("Version Coming Soon"),
+        ),
+      ),
+      body: Center(
+        child: Image.asset(
+          "assets/images/finalposter.jpg",
+          fit: BoxFit.fill,
+        ),
       ),
     );
   }
