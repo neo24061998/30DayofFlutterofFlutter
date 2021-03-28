@@ -1,32 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:testing/pages/home_page.dart';
-import 'package:testing/pages/login.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:testing/utils/routes.dart';
+//import 'package:ipomarket/helper/Style.dart';
 
-main(List<String> args) {
-  runApp(MyApp());
-}
+import 'SplashScreen.dart';
+
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      color: Colors.white,
-      theme: ThemeData(
-        primarySwatch: Colors.deepPurple,
-        fontFamily: GoogleFonts.lato().fontFamily,
-        //primaryTextTheme: GoogleFonts.latoTextTheme(),
-      ),
-
-      //home: HomePage(),
-      routes: {
-        "/": (context) => LoginPage(),
-        MyRoutes.homeRoutes: (context) => HomePage(),
-        MyRoutes.loginRoutes: (context) => LoginPage(),
-      },
-      initialRoute: "/login",
+      theme: ThemeData(primarySwatch: Colors.red),
+      home: SplashScreen(),
     );
   }
 }
